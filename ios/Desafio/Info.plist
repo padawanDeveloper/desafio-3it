@@ -33,11 +33,11 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Para darte mejor servicio</string>
+	<string>Necesitamos este permiso para darte un mejor servicio</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Para darte mejor servicio</string>
+	<string>Necesitamos este permiso para darte un mejor servicio</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Para darte mejor servicio</string>
+	<string>Necesitamos este permiso para darte un mejor servicio</string>
 
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
