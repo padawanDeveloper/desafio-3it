@@ -1,23 +1,14 @@
-import { View, Text } from 'react-native';
-
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createStaticNavigation } from '@react-navigation/native';
 
 import { ROOT, TOUR } from '../constants/screens';
 import { AppStack } from './AppStack';
+import { TourScreen } from '../screens';
 
 export type AppStackParamList = {
   [ROOT]: undefined;
   [TOUR]: undefined;
 };
-
-function TourScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Tour Screen</Text>
-    </View>
-  );
-}
 
 const AppNavigator = createNativeStackNavigator({
   screens: {
