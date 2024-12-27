@@ -3,15 +3,16 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
   useColorScheme,
   View,
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { requestLocationPermission } from './src/utils/geolocation';
 
 function App(): React.JSX.Element {
+  requestLocationPermission().then(() => console.log('resp'));
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
