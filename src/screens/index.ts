@@ -1,3 +1,4 @@
 import TourScreen from './Tour';
+import HomeScreen from './Home';
 
-export { TourScreen };
+export { HomeScreen, TourScreen };
