@@ -1,43 +1,39 @@
-import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
-import { ListItem, Icon } from '@rneui/themed';
+import { FlatList } from 'react-native';
 
+import { euro, dolar, uf } from '../../constants/indicators';
 import { Indicators } from '../../types/Indicator';
+import { indicator } from '../../api';
+import renderItem from './components/IndicatorItem';
 
 const list = [
   {
-    id: '',
-    title: 'Amy Farha',
+    id: euro.value,
+    title: euro.label,
     subtitle: 'Pesos',
-    onTitlePress: () => console.log('hola1'),
-    onIconPress: () => console.log('holaicon1'),
   },
   {
-    id: '',
-    title: 'Chris Jackson',
+    id: dolar.value,
+    title: dolar.label,
     subtitle: 'Pesos',
-    onTitlePress: () => console.log('hola2'),
-    onIconPress: () => console.log('holaicon2'),
+  },
+  {
+    id: uf.value,
+    title: uf.label,
+    subtitle: 'Pesos',
   },
 ];
 
 const keyExtractor = (_: Indicators, index: number) => index.toString();
 
-const renderItem: ListRenderItem<Indicators> = ({ item }) => (
-  <ListItem bottomDivider>
-    <ListItem.Content>
-      <TouchableOpacity onPress={item.onTitlePress}>
-        <ListItem.Title>{item.title}</ListItem.Title>
-      </TouchableOpacity>
-      <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
-    </ListItem.Content>
-    <TouchableOpacity onPress={item.onIconPress}>
-      <Icon name="inbox" type="material-community" color="grey" />
-    </TouchableOpacity>
-  </ListItem>
-);
+const IndicatorList = () => {
+  indicator
+    .fetchLast30Days('euro')
+    .then(resp => console.log('resp', resp))
+    .catch(err => console.log('err', err));
 
-const IndicatorList = () => (
-  <FlatList keyExtractor={keyExtractor} data={list} renderItem={renderItem} />
-);
+  return (
+    <FlatList keyExtractor={keyExtractor} data={list} renderItem={renderItem} />
+  );
+};
 
 export default IndicatorList;
