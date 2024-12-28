@@ -1,7 +1,5 @@
-export interface Indicators {
-  onTitlePress: (id: string) => void;
-  onIconPress: (id: string) => void;
+export type Indicators = {
   id: string;
   title: string;
   subtitle: string;
-}
+};
