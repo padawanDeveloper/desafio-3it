@@ -3,3 +3,8 @@ export type Indicators = {
   title: string;
   subtitle: string;
 };
+
+export type Item = {
+  date: string;
+  value: string;
+};
