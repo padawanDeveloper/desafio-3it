@@ -1,24 +1,35 @@
 import { FlatList } from 'react-native';
 
-import { euro, dolar, uf } from '../../constants/indicators';
+import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
 import { Indicators } from '../../types/Indicator';
 import { indicator } from '../../api';
 import renderItem from './components/IndicatorItem';
 
 const list = [
   {
-    id: euro.value,
-    title: euro.label,
-    subtitle: 'Pesos',
-  },
-  {
     id: dolar.value,
     title: dolar.label,
     subtitle: 'Pesos',
   },
   {
+    id: euro.value,
+    title: euro.label,
+    subtitle: 'Pesos',
+  },
+
+  {
+    id: ipc.value,
+    title: ipc.label,
+    subtitle: 'Pesos',
+  },
+  {
     id: uf.value,
     title: uf.label,
+    subtitle: 'Pesos',
+  },
+  {
+    id: utm.value,
+    title: utm.label,
     subtitle: 'Pesos',
   },
 ];
