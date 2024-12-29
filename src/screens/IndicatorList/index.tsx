@@ -1,3 +1,4 @@
+import React from 'react';
 import { FlatList } from 'react-native';
 
 import { Item } from '../../types/Indicator';
@@ -22,8 +23,9 @@ const parseData = (data: IndicatorDetail) =>
     ?.map((item: any) => ({ date: item['Fecha'], value: item['Valor'] }))
     ?.reverse();
 
-const IndicatorList = () => {
-  const { data, loading, error } = useFetchIdicatorData(buildUrl('euro'));
+const IndicatorList: React.FC = ({ route }: any) => {
+  const { id } = route.params;
+  const { data, loading, error } = useFetchIdicatorData(buildUrl(id));
 
   console.log({ data, loading, error });
 

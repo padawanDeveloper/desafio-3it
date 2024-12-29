@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -47,8 +48,10 @@ const Home = () => {
     navigation.navigate(url, params);
 
   const handleIconPress = (id: string) => console.log(id);
-  const handleTitlePress = (id: string) =>
-    handleNavigation(INDICATOR_LIST, { id });
+  const handleTitlePress = useCallback(
+    (id: string) => handleNavigation(INDICATOR_LIST, { id }),
+    [],
+  );
 
   return (
     <FlatList
