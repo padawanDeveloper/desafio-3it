@@ -23,7 +23,7 @@ const ListIndicatorsItem = ({
       <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
     </ListItem.Content>
     <TouchableOpacity onPress={() => onIconPress(item.id)}>
-      <Icon name="inbox" type="material-community" color="grey" />
+      <Icon name="infocirlceo" type="ant-design" color="grey" />
     </TouchableOpacity>
   </ListItem>
 );

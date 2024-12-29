@@ -16,7 +16,7 @@ export const AppStack = createNativeStackNavigator({
     [HOME]: {
       screen: HomeScreen,
       options: {
-        title: '',
+        title: 'Indicadores',
       },
     },
     [INDICATOR_LIST]: {
