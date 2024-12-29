@@ -1,28 +1,33 @@
-import { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
 
 import { Item } from '../../types/Indicator';
-import { indicator } from '../../api';
 import renderItem from './components/Item';
+import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
+import { getLastTwoMonths } from '../../utils/date';
 
 const keyExtractor = (_: Item, index: number) => index.toString();
 
-const IndicatorList = () => {
-  const [data, setData] = useState([]);
+const buildUrl = (indicator: string) => {
+  const lastTwoMonths = getLastTwoMonths();
 
-  useEffect(() => {
-    indicator
-      .fetchLast30Days('euro')
-      .then(resp => setData(resp))
-      .catch(err => console.log('err', err));
-  }, []);
+  return `/${indicator}/periodo/${lastTwoMonths[1]}/${lastTwoMonths[0]}`;
+};
+
+const getLast30Items = (arr: any) => arr?.slice(-30);
+
+const parseData = (data: any) => getLast30Items(Object.values(data)[0]);
+
+const IndicatorList = () => {
+  const { data, loading, error } = useFetchIdicatorData(buildUrl('euro'));
+
+  console.log({ data, loading, error });
 
   return (
     <FlatList
       keyExtractor={keyExtractor}
-      data={data
-        .map(item => ({ date: item['Fecha'], value: item['Valor'] }))
-        .reverse()}
+      data={parseData(data)
+        ?.map(item => ({ date: item['Fecha'], value: item['Valor'] }))
+        ?.reverse()}
       renderItem={renderItem}
     />
   );

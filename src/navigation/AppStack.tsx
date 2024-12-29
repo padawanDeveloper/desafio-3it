@@ -9,14 +9,14 @@ export type RootStackParamList = {
 
 export const AppStack = createNativeStackNavigator({
   screens: {
-    [HOME]: {
-      screen: HomeScreen,
+    [INDICATOR_LIST]: {
+      screen: IndicatorListScreen,
       options: {
         title: '',
       },
     },
-    [INDICATOR_LIST]: {
-      screen: IndicatorListScreen,
+    [HOME]: {
+      screen: HomeScreen,
       options: {
         title: '',
       },
