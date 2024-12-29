@@ -1,43 +1,71 @@
-import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
-import { ListItem, Icon } from '@rneui/themed';
+import { useCallback } from 'react';
+import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
+import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
 import { Indicators } from '../../types/Indicator';
+import ListItem from './components/IndicatorItem';
+import { RootStackParamList } from '../../navigation/AppStack';
+import { INDICATOR_LIST } from '../../constants/screens';
 
 const list = [
   {
-    id: '',
-    title: 'Amy Farha',
+    id: dolar.value,
+    title: dolar.label,
     subtitle: 'Pesos',
-    onTitlePress: () => console.log('hola1'),
-    onIconPress: () => console.log('holaicon1'),
   },
   {
-    id: '',
-    title: 'Chris Jackson',
+    id: euro.value,
+    title: euro.label,
     subtitle: 'Pesos',
-    onTitlePress: () => console.log('hola2'),
-    onIconPress: () => console.log('holaicon2'),
+  },
+
+  {
+    id: ipc.value,
+    title: ipc.label,
+    subtitle: 'Pesos',
+  },
+  {
+    id: uf.value,
+    title: uf.label,
+    subtitle: 'Pesos',
+  },
+  {
+    id: utm.value,
+    title: utm.label,
+    subtitle: 'Pesos',
   },
 ];
 
 const keyExtractor = (_: Indicators, index: number) => index.toString();
 
-const renderItem: ListRenderItem<Indicators> = ({ item }) => (
-  <ListItem bottomDivider>
-    <ListItem.Content>
-      <TouchableOpacity onPress={item.onTitlePress}>
-        <ListItem.Title>{item.title}</ListItem.Title>
-      </TouchableOpacity>
-      <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
-    </ListItem.Content>
-    <TouchableOpacity onPress={item.onIconPress}>
-      <Icon name="inbox" type="material-community" color="grey" />
-    </TouchableOpacity>
-  </ListItem>
-);
+const Home = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-const IndicatorList = () => (
-  <FlatList keyExtractor={keyExtractor} data={list} renderItem={renderItem} />
-);
+  const handleNavigation = (url: string, params: any) =>
+    navigation.navigate(url, params);
 
-export default IndicatorList;
+  const handleIconPress = (id: string) => console.log(id);
+  const handleTitlePress = useCallback(
+    (id: string) => handleNavigation(INDICATOR_LIST, { id }),
+    [],
+  );
+
+  return (
+    <FlatList
+      keyExtractor={keyExtractor}
+      data={list}
+      renderItem={({ item }) => (
+        <ListItem
+          item={item}
+          onTitlePress={handleTitlePress}
+          onIconPress={handleIconPress}
+        />
+      )}
+    />
+  );
+};
+
+export default Home;
