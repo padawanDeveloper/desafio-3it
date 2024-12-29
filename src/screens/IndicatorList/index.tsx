@@ -50,8 +50,6 @@ const IndicatorList: React.FC = ({ route }: any) => {
   const { id } = route.params;
   const { data, loading, error } = useFetchIdicatorData(switchUrl(id));
 
-  console.log({ data, loading, error });
-
   return (
     <FlatList
       keyExtractor={keyExtractor}
