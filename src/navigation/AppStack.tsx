@@ -23,6 +23,7 @@ export const AppStack = createNativeStackNavigator({
       screen: IndicatorListScreen,
       options: {
         title: '',
+        headerBackTitle: 'Indicadores',
       },
     },
   },

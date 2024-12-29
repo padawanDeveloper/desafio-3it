@@ -1,3 +1,4 @@
+import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { ListItem, Icon } from '@rneui/themed';
 
@@ -27,4 +28,4 @@ const ListIndicatorsItem = ({
   </ListItem>
 );
 
-export default ListIndicatorsItem;
+export default React.memo(ListIndicatorsItem);
