@@ -1,9 +1,12 @@
 import { FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
 import { Indicators } from '../../types/Indicator';
-import { indicator } from '../../api';
-import renderItem from './components/IndicatorItem';
+import ListItem from './components/IndicatorItem';
+import { RootStackParamList } from '../../navigation/AppStack';
+import { INDICATOR_LIST } from '../../constants/screens';
 
 const list = [
   {
@@ -36,15 +39,30 @@ const list = [
 
 const keyExtractor = (_: Indicators, index: number) => index.toString();
 
-const IndicatorList = () => {
-  indicator
-    .fetchLast30Days('euro')
-    .then(resp => console.log('resp', resp))
-    .catch(err => console.log('err', err));
+const Home = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
+  const handleNavigation = (url: string, params: any) =>
+    navigation.navigate(url, params);
+
+  const handleIconPress = (id: string) => console.log(id);
+  const handleTitlePress = (id: string) =>
+    handleNavigation(INDICATOR_LIST, { id });
 
   return (
-    <FlatList keyExtractor={keyExtractor} data={list} renderItem={renderItem} />
+    <FlatList
+      keyExtractor={keyExtractor}
+      data={list}
+      renderItem={({ item }) => (
+        <ListItem
+          item={item}
+          onTitlePress={handleTitlePress}
+          onIconPress={handleIconPress}
+        />
+      )}
+    />
   );
 };
 
-export default IndicatorList;
+export default Home;

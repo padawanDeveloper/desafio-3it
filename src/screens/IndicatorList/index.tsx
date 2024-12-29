@@ -5,6 +5,8 @@ import renderItem from './components/Item';
 import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
 import { getLastTwoMonths } from '../../utils/date';
 
+type IndicatorDetail = Array<{ Valor: string; Fecha: string }>;
+
 const keyExtractor = (_: Item, index: number) => index.toString();
 
 const buildUrl = (indicator: string) => {
@@ -15,9 +17,9 @@ const buildUrl = (indicator: string) => {
 
 const getLast30Items = (arr: any) => arr?.slice(-30);
 
-const parseData = (data: any) =>
+const parseData = (data: IndicatorDetail) =>
   getLast30Items(Object.values(data)[0])
-    ?.map(item => ({ date: item['Fecha'], value: item['Valor'] }))
+    ?.map((item: any) => ({ date: item['Fecha'], value: item['Valor'] }))
     ?.reverse();
 
 const IndicatorList = () => {

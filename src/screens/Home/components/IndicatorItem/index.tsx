@@ -1,23 +1,30 @@
-import { ListRenderItem, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { ListItem, Icon } from '@rneui/themed';
 
 import { Indicators } from '../../../../types/Indicator';
 
-const handleIconPress = (id: string) => console.log(id);
-const handleTitlePress = (id: string) => console.log(id);
+interface Iindicator {
+  item: Indicators;
+  onTitlePress: (id: string) => void;
+  onIconPress: (id: string) => void;
+}
 
-const renderItem: ListRenderItem<Indicators> = ({ item }) => (
+const ListIndicatorsItem = ({
+  item,
+  onTitlePress,
+  onIconPress,
+}: Iindicator) => (
   <ListItem bottomDivider>
     <ListItem.Content>
-      <TouchableOpacity onPress={() => handleTitlePress(item.id)}>
+      <TouchableOpacity onPress={() => onTitlePress(item.id)}>
         <ListItem.Title>{item.title}</ListItem.Title>
       </TouchableOpacity>
       <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
     </ListItem.Content>
-    <TouchableOpacity onPress={() => handleIconPress(item.id)}>
+    <TouchableOpacity onPress={() => onIconPress(item.id)}>
       <Icon name="inbox" type="material-community" color="grey" />
     </TouchableOpacity>
   </ListItem>
 );
 
-export default renderItem;
+export default ListIndicatorsItem;

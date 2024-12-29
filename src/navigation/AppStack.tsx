@@ -5,18 +5,22 @@ import { HomeScreen, IndicatorListScreen } from '../screens';
 
 export type RootStackParamList = {
   [HOME]: undefined;
+  [INDICATOR_LIST]: {
+    id: string;
+  };
 };
 
 export const AppStack = createNativeStackNavigator({
+  initialRouteName: HOME,
   screens: {
-    [INDICATOR_LIST]: {
-      screen: IndicatorListScreen,
+    [HOME]: {
+      screen: HomeScreen,
       options: {
         title: '',
       },
     },
-    [HOME]: {
-      screen: HomeScreen,
+    [INDICATOR_LIST]: {
+      screen: IndicatorListScreen,
       options: {
         title: '',
       },
