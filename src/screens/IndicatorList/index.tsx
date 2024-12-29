@@ -6,6 +6,7 @@ import renderItem from './components/Item';
 import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
 import { getLastTwoMonths } from '../../utils/date';
 import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
+import ListEmpty from '../../components/List/ListEmptyComponent';
 
 type IndicatorDetail = Array<{ Valor: string; Fecha: string }>;
 
@@ -56,6 +57,7 @@ const IndicatorList: React.FC = ({ route }: any) => {
       keyExtractor={keyExtractor}
       data={parseData(data)}
       renderItem={renderItem}
+      ListEmptyComponent={<ListEmpty isLoading={loading} error={error} />}
     />
   );
 };
