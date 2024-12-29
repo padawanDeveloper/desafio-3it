@@ -15,7 +15,10 @@ const buildUrl = (indicator: string) => {
 
 const getLast30Items = (arr: any) => arr?.slice(-30);
 
-const parseData = (data: any) => getLast30Items(Object.values(data)[0]);
+const parseData = (data: any) =>
+  getLast30Items(Object.values(data)[0])
+    ?.map(item => ({ date: item['Fecha'], value: item['Valor'] }))
+    ?.reverse();
 
 const IndicatorList = () => {
   const { data, loading, error } = useFetchIdicatorData(buildUrl('euro'));
@@ -25,9 +28,7 @@ const IndicatorList = () => {
   return (
     <FlatList
       keyExtractor={keyExtractor}
-      data={parseData(data)
-        ?.map(item => ({ date: item['Fecha'], value: item['Valor'] }))
-        ?.reverse()}
+      data={parseData(data)}
       renderItem={renderItem}
     />
   );
