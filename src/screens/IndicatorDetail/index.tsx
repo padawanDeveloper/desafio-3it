@@ -1,7 +1,12 @@
-import { Text } from '@rneui/themed';
+import { View, Dimensions } from 'react-native';
+import LineChartComponent from './components/charts/Line';
 
 const IndicatorDetail = () => {
-  return <Text>Detail</Text>;
+  return (
+    <View>
+      <LineChartComponent />
+    </View>
+  );
 };
 
 export default IndicatorDetail;
