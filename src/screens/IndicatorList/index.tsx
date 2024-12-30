@@ -56,7 +56,6 @@ const IndicatorList: React.FC = ({ route }: any) => {
       data={parseData(data)}
       renderItem={renderItem}
       ListEmptyComponent={<ListEmpty isLoading={loading} error={error} />}
-      contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
     />
   );
 };

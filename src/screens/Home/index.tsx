@@ -13,28 +13,28 @@ const list = [
   {
     id: dolar.value,
     title: dolar.label,
-    subtitle: 'Pesos',
+    subtitle: dolar.unit,
   },
   {
     id: euro.value,
     title: euro.label,
-    subtitle: 'Pesos',
+    subtitle: euro.unit,
   },
 
   {
     id: ipc.value,
     title: ipc.label,
-    subtitle: 'Pesos',
+    subtitle: ipc.unit,
   },
   {
     id: uf.value,
     title: uf.label,
-    subtitle: 'Pesos',
+    subtitle: uf.unit,
   },
   {
     id: utm.value,
     title: utm.label,
-    subtitle: 'Pesos',
+    subtitle: utm.unit,
   },
 ];
 
