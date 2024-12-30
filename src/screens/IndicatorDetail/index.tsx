@@ -6,6 +6,7 @@ import { LineChartComponent, Header } from './components';
 import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
 import { indicatorList } from '../../constants/indicators';
 import { switchUrl, switchDataInfo } from './utils/data';
+import { ipc } from '../../constants/indicators';
 
 const IndicatorDetail: React.FC = ({ route }: any) => {
   const { id } = route.params;
@@ -20,7 +21,9 @@ const IndicatorDetail: React.FC = ({ route }: any) => {
     <ScrollView>
       <Header
         info={{
-          value: info?.data[info?.data.length - 1],
+          value: `${id === ipc.value ? '' : '$ '}${
+            info?.data[info?.data.length - 1]
+          }`,
           name: indicatorList[id].label,
           date: info?.labels[info?.labels.length - 1],
           unit: indicatorList[id].unit,

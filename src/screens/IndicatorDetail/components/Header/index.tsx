@@ -20,7 +20,7 @@ const Header = ({ info }: Props) => (
           textAlign: 'center',
         }}
         h1>
-        $ {info.value}
+        {info.value}
       </Text>
     </View>
     <View
