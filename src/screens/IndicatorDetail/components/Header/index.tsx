@@ -14,7 +14,7 @@ type Props = {
 
 const Header = ({ info }: Props) => (
   <>
-    <View>
+    <View style={{ marginVertical: 20 }}>
       <Text
         style={{
           textAlign: 'center',
@@ -23,32 +23,37 @@ const Header = ({ info }: Props) => (
         {info.value}
       </Text>
     </View>
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: 20,
-      }}>
-      <Text>Nombre</Text>
-      <Text>{info.name}</Text>
-    </View>
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: 20,
-      }}>
-      <Text>Fecha</Text>
-      <Text>{info.date}</Text>
-    </View>
-    <View
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: 20,
-      }}>
-      <Text>Unidad de medida</Text>
-      <Text>{info.unit}</Text>
+    <View style={{ marginVertical: 20 }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 20,
+          marginVertical: 5,
+        }}>
+        <Text>Nombre</Text>
+        <Text>{info.name}</Text>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 20,
+          marginVertical: 5,
+        }}>
+        <Text>Fecha</Text>
+        <Text>{info.date}</Text>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 20,
+          marginVertical: 5,
+        }}>
+        <Text>Unidad de medida</Text>
+        <Text>{info.unit}</Text>
+      </View>
     </View>
   </>
 );
