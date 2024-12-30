@@ -2,11 +2,12 @@ import React from 'react';
 import { FlatList } from 'react-native';
 
 import { Item } from '../../types/Indicator';
-import renderItem from './components/Item';
+import RenderItem from './components/Item';
 import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
 import { getLastMonths } from '../../utils/date';
 import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
 import ListEmpty from '../../components/List/ListEmptyComponent';
+import useSetNavigationOptions from '../../hooks/useSetNavigationOptions';
 
 type IndicatorDetail = Array<{ Valor: string; Fecha: string }>;
 
@@ -49,12 +50,13 @@ const parseData = (data: IndicatorDetail) =>
 const IndicatorList: React.FC = ({ route }: any) => {
   const { id } = route.params;
   const { data, loading, error } = useFetchIdicatorData(switchUrl(id));
+  useSetNavigationOptions(id);
 
   return (
     <FlatList
       keyExtractor={keyExtractor}
       data={parseData(data)}
-      renderItem={renderItem}
+      renderItem={({ item }) => <RenderItem item={item} indicator={id} />}
       ListEmptyComponent={<ListEmpty isLoading={loading} error={error} />}
     />
   );

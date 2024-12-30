@@ -7,10 +7,12 @@ import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
 import { indicatorList } from '../../constants/indicators';
 import { switchUrl, switchDataInfo } from './utils/data';
 import { ipc } from '../../constants/indicators';
+import useSetNavigationOptions from '../../hooks/useSetNavigationOptions';
 
 const IndicatorDetail: React.FC = ({ route }: any) => {
   const { id } = route.params;
   const { data, loading, error } = useFetchIdicatorData(switchUrl(id));
+  useSetNavigationOptions(id);
 
   if (error) return <Text>Ocurrio un error inesperado</Text>;
   if (loading) return <ActivityIndicator />;
