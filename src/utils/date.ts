@@ -1,8 +1,8 @@
-export function getLastTwoMonths() {
+export function getLastMonths(months: number) {
   const today = new Date();
-  const lastTwoMonths = [];
+  const lastMonths = [];
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < months; i++) {
     const date = new Date(today);
     date.setMonth(today.getMonth() - i);
 
@@ -10,8 +10,8 @@ export function getLastTwoMonths() {
       .toString()
       .padStart(2, '0')}`;
 
-    lastTwoMonths.push(formattedDate);
+    lastMonths.push(formattedDate);
   }
 
-  return lastTwoMonths;
+  return lastMonths;
 }

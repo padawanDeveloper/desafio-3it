@@ -4,7 +4,7 @@ import { FlatList } from 'react-native';
 import { Item } from '../../types/Indicator';
 import renderItem from './components/Item';
 import useFetchIdicatorData from '../../hooks/useFetchIdicatorData';
-import { getLastTwoMonths } from '../../utils/date';
+import { getLastMonths } from '../../utils/date';
 import { euro, dolar, uf, ipc, utm } from '../../constants/indicators';
 import ListEmpty from '../../components/List/ListEmptyComponent';
 
@@ -13,7 +13,7 @@ type IndicatorDetail = Array<{ Valor: string; Fecha: string }>;
 const keyExtractor = (_: Item, index: number) => index.toString();
 
 const buildTwoMonthUrl = (indicator: string) => {
-  const lastTwoMonths = getLastTwoMonths();
+  const lastTwoMonths = getLastMonths(2);
 
   return `/${indicator}/periodo/${lastTwoMonths[1]}/${lastTwoMonths[0]}`;
 };
