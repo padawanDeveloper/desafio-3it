@@ -1,4 +1,5 @@
 import { ScrollView } from 'react-native';
+import { Text } from '@rneui/themed';
 
 import { LineChart } from 'react-native-chart-kit';
 
@@ -40,6 +41,11 @@ const LineChartComponent = ({ labels, data }: Props) => (
       height={220}
       yAxisInterval={1}
       chartConfig={chartConfig}
+      renderDotContent={({ x, y, index, indexData }) => (
+        <Text key={index} style={{ position: 'absolute', top: y, left: x }}>
+          {indexData}
+        </Text>
+      )}
     />
   </ScrollView>
 );
