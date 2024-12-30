@@ -2,6 +2,7 @@ import { ListItem } from '@rneui/themed';
 
 import { Item } from '../../../../types/Indicator';
 import { ipc } from '../../../../constants/indicators';
+import { paletteColor } from '../../../../constants/palette';
 
 type Props = {
   item: Item;
@@ -11,7 +12,9 @@ type Props = {
 const RenderItem = ({ item, indicator }: Props) => (
   <ListItem bottomDivider>
     <ListItem.Content>
-      <ListItem.Title style={{ color: '#1e90ff' }}>{item.date}</ListItem.Title>
+      <ListItem.Title style={{ color: paletteColor.BLUE_SKY }}>
+        {item.date}
+      </ListItem.Title>
     </ListItem.Content>
     <ListItem.Content right>
       <ListItem.Title right style={{ color: 'black' }}>

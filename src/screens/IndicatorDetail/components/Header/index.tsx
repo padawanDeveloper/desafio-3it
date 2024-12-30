@@ -1,6 +1,8 @@
 import { View } from 'react-native';
 import { Text } from '@rneui/themed';
 
+import { paletteColor } from '../../../../constants/palette';
+
 type Info = {
   value: string;
   name: string;
@@ -18,6 +20,7 @@ const Header = ({ info }: Props) => (
       <Text
         style={{
           textAlign: 'center',
+          color: paletteColor.BLUE_SKY,
         }}
         h1>
         {info.value}
