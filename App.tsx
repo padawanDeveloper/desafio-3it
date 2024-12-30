@@ -1,41 +1,13 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, { useEffect } from 'react';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { requestLocationPermission } from './src/utils/geolocation';
+import RootNavigation from './src/navigation';
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Text>Initial App</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+const App: React.FC = () => {
+  useEffect(() => {
+    requestLocationPermission();
+  }, []);
+  return <RootNavigation />;
+};
 
 export default App;
