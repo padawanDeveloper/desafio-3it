@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.cmfchile.cl/api-sbifv3/recursos_api';
-
 const api = axios.create({
-  baseURL: BASE_URL,
+  baseURL: process.env.API_URL,
   params: {
-    apikey: '9037b241dd8498d8d75c7769100167d63e773a14',
+    apikey: process.env.API_KEY,
     formato: 'json',
   },
 });

@@ -1,6 +1,10 @@
 # Getting Started
 
-> **Note**: Tener el ambiente de desarrollo configurado segun la documentacion de [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instrucciones hasta el paso "Crear una nueva aplicación", antes de continuar.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+
+## Step 1: Start the Metro Server
+
+El archivo .env ya esta configurado con una api key, en caso de no funcionar cambiar el valor de API_KEY
 
 ## Step 1: Instalar dependencias
 
