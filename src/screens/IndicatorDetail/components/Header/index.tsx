@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { Text } from '@rneui/themed';
 
 import { paletteColor } from '../../../../constants/palette';
+import styles from './styles';
 
 type Info = {
   value: string;
@@ -16,7 +17,7 @@ type Props = {
 
 const Header = ({ info }: Props) => (
   <>
-    <View style={{ marginVertical: 20 }}>
+    <View style={styles.container}>
       <Text
         style={{
           textAlign: 'center',
@@ -26,34 +27,16 @@ const Header = ({ info }: Props) => (
         {info.value}
       </Text>
     </View>
-    <View style={{ marginVertical: 20 }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginHorizontal: 20,
-          marginVertical: 5,
-        }}>
+    <View style={styles.container}>
+      <View style={styles.title}>
         <Text>Nombre</Text>
         <Text>{info.name}</Text>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginHorizontal: 20,
-          marginVertical: 5,
-        }}>
+      <View style={styles.title}>
         <Text>Fecha</Text>
         <Text>{info.date}</Text>
       </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginHorizontal: 20,
-          marginVertical: 5,
-        }}>
+      <View style={styles.title}>
         <Text>Unidad de medida</Text>
         <Text>{info.unit}</Text>
       </View>
