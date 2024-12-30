@@ -1,7 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { HOME, INDICATOR_LIST } from '../constants/screens';
-import { HomeScreen, IndicatorListScreen } from '../screens';
+import { HOME, INDICATOR_LIST, INDICATOR_DETAIL } from '../constants/screens';
+import {
+  HomeScreen,
+  IndicatorDetailScreen,
+  IndicatorListScreen,
+} from '../screens';
 
 export type RootStackParamList = {
   [HOME]: undefined;
@@ -21,6 +25,13 @@ export const AppStack = createNativeStackNavigator({
     },
     [INDICATOR_LIST]: {
       screen: IndicatorListScreen,
+      options: {
+        title: '',
+        headerBackTitle: 'Indicadores',
+      },
+    },
+    [INDICATOR_DETAIL]: {
+      screen: IndicatorDetailScreen,
       options: {
         title: '',
         headerBackTitle: 'Indicadores',

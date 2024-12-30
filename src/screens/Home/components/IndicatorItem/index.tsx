@@ -3,6 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { ListItem, Icon } from '@rneui/themed';
 
 import { Indicators } from '../../../../types/Indicator';
+import { paletteColor } from '../../../../constants/palette';
 
 interface Iindicator {
   item: Indicators;
@@ -20,10 +21,16 @@ const ListIndicatorsItem = ({
       <TouchableOpacity onPress={() => onTitlePress(item.id)}>
         <ListItem.Title>{item.title}</ListItem.Title>
       </TouchableOpacity>
-      <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
+      <ListItem.Subtitle style={{ color: paletteColor.BLUE_SKY }}>
+        {item.subtitle}
+      </ListItem.Subtitle>
     </ListItem.Content>
     <TouchableOpacity onPress={() => onIconPress(item.id)}>
-      <Icon name="infocirlceo" type="ant-design" color="grey" />
+      <Icon
+        name="infocirlceo"
+        type="ant-design"
+        color={paletteColor.BLUE_SKY}
+      />
     </TouchableOpacity>
   </ListItem>
 );
