@@ -1,8 +1,6 @@
 # Getting Started
 
-> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
-El archivo .env ya esta configurado con una api key, en caso de no funcionar cambiar el valor de API_KEY
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://github.com/padawanDeveloper/afp-uno.git)
 
 ## Step 1: Instalar dependencias
 
